@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from .models import InterestQuiz
+from .serializers import InterestQuizSerializer
+from rest_framework import generics
 
-# Create your views here.
+
+class InterestQuizListCreate(generics.ListCreateAPIView):
+    queryset = InterestQuiz.objects.all()
+    serializer_class = InterestQuizSerializer
